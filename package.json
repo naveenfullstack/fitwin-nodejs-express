@@ -1,19 +1,22 @@
 {
-  "name": "back-end",
+  "name": "fitwin-express.test",
   "version": "1.0.0",
   "description": "",
+  "keywords": ["express", "starter", "template"],
   "main": "index.js",
-  "bin" : "./bin/cli/js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naveenfullstack/express-startup.git"
+  },
+  "bin": {
+    "create-my-express-starter": "starter.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon server.js",
     "start": "nodemon server.js"
   },
-  "repository" : {
-    "type" : "git",
-    "Url" : "https://github.com/naveenfullstack/express-startup.git"
-  },
-  
+  "files": ["starter.js", "src" ,"models" , "routes", ".env" ,"server.js" , "middlewares" , ".gitignore" , "README.md"],
   "author": "",
   "license": "ISC",
   "dependencies": {
