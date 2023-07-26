@@ -30,7 +30,7 @@ const messageBox =
         stretch: true,
         hAlign: 'left',
         vAlign: 'top',
-    }, `Next Steps\n - Install Dependencies\n - Connect Database\n - Connect Cache Database\n - Change Project Details`
+    }, `Next Steps\n - Install Dependencies\n - Connect Database\n - Connect Cache\n - Change Project Details`
     );
 const QUESTIONS = [
     {
@@ -38,12 +38,12 @@ const QUESTIONS = [
         type: 'list',
         message: '👉 Which project template would you like to generate?',
         choices: CHOICES,
-        default: "express-default",
+        default: "nextjs-apollo-client",
     },
     {
         name: 'include-testing',
         type: 'confirm',
-        message: `🦺 Add Test Coverage with Jest, Playwright, react-testing-library ? ${chalkPipe}`,
+        message: `🦺 Add Test Coverage with Jest, Playwright, react-testing-library ? ${chalkPipe('red.bold')('(BETA)')}`,
         choices: CHOICES,
         default: false,
     },
@@ -65,8 +65,7 @@ const QUESTIONS = [
     },
 ];
 const spinner = ora({
-    text: '🤞 Downloading Template',
-    text: '🤞 Unziping Template'
+    text: '🤞 Downloading Template'
 })
 inquirer.prompt(QUESTIONS)
     .then(answers => {
@@ -92,22 +91,48 @@ inquirer.prompt(QUESTIONS)
             spinner.succeed()
         }, 2000);
         setTimeout(() => {
-            spinner.succeed()
+            spinner.color = 'yellow'
+            spinner.start("🐕 Adding Husky")
+            createDirectoryContents(`${__dirname}/husky`, templateName);
         }, 3000);
+        setTimeout(() => {
+            spinner.succeed()
+        }, 4000);
         if (Boolean(includeTesting)) {
             setTimeout(() => {
                 spinner.color = 'magenta'
                 spinner.start("🧪 Adding Test Coverage")
                 createDirectoryContents(`${__dirname}/testing`, templateName)
-            }, 4000);
+            }, 5000);
             setTimeout(() => {
                 spinner.succeed()
                 console.log(chalkPipe("green.bold")('🎉 Let\'s Get this party started!!'))
-            }, 5000)
+            }, 6000)
         }
         setTimeout(() => {
             console.log(messageBox.stringify());
-        }, 6000)
+        }, 7000)
+        //! TODO: Package installation script
+        // setTimeout(() => {
+        //     spinner.color = 'green'
+        //     spinner.start("Installing Packages")
+        //     exec(`yarn install --modules-folder ./${templateName}`, (error, stdout, stderr) => {
+        //         if (error) {
+        //             spinner.fail(`error: ${error.message}`);
+        //             return;
+        //         }
+        //         if (stderr) {
+        //             spinner.fail(`stderr: ${stderr}`);
+        //             return;
+        //         }
+        //         console.log("\n");
+        //         spinner.succeed(`${stdout}`);
+        //     });
+        // }, 7000);
+        // setTimeout(() => {
+        //     spinner.stop()
+        // }, 8000);
+
     })
     .catch((error) => {
         if (error.isTtyError) {
