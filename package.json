@@ -1,6 +1,6 @@
 {
   "name": "fitwin-nodejs-express",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": " Simple Cli to Spin up Scalable & Robust NextJs Application, Beautifully architected for Great DX",
   "main": "index.js",
   "type": "module",
