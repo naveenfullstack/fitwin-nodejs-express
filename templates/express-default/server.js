@@ -30,49 +30,23 @@ app.use(request_limiter);
 const pickIp = require ('./middlewares/pickIp')
 app.use(pickIp);
 
-// const requestHeaders = require ('./middlewares/header')
-// app.use(requestHeaders);
-
-// const authIp = require ('./middlewares/authIp')
-// app.use(authIp)
-
-// const blockedIps = require('./middlewares/blockedIps')
-// app.use(blockedIps)
-
   //Routes
 
-const portfolioproject = require('./routes/portfolio/projects');
-app.use('/portfolio/', portfolioproject);
+const signupRoutes = require('./routes/auth/signup');
+app.use('/auth/signup', signupRoutes);
 
-const services = require('./routes/portfolio/services');
-app.use('/portfolio/', services);
+const loginRoutes = require('./routes/auth/login');
+app.use('/auth/login', loginRoutes);
 
-const clients = require('./routes/portfolio/clients');
-app.use('/portfolio/', clients);
-
-const signupRoutes = require('./routes/auth/client/signup');
-app.use('/auth/client/signup', signupRoutes);
-
-const loginRoutes = require('./routes/auth/client/login');
-app.use('/auth/client/login', loginRoutes);
-
-const forgotpassword = require('./routes/auth/client/forgotpassword');
-app.use('/auth/client/', forgotpassword);
-
-const upload = require('./routes/upload/upload');
-app.use('/upload/', upload);
+const forgotpassword = require('./routes/auth/forgotpassword');
+app.use('/auth/', forgotpassword);
 
 // const logout = require('./routes/auth/logout');
 // app.use('/auth/logout/', logout);
 
+const check_token = require('./routes/auth/check-token');
+app.use('/auth/', check_token);
 
 
-const check_token = require('./routes/auth/client/check-token');
-app.use('/auth/client/', check_token);
-
-
-
-  const port = 3001;
-  app.listen(port, () => {
-    //console.log(`Server is running on http://localhost:${port}`);
-  });
+const port = 3001;
+  app.listen(port, () => {});

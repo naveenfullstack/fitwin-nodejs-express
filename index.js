@@ -14,9 +14,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 let availableTemplates=[
     "nextjs-apollo-client",
-    "nextjs-react-query",
-    "nextjs-urql-client",
-    "nextjs-material-ui",
     "express-default"
 ]
 let templateName = "."
@@ -30,7 +27,7 @@ const messageBox =
         stretch: true,
         hAlign: 'left',
         vAlign: 'top',
-    }, `Next Steps\n - Install Dependencies\n - Connect Database\n - Connect Cache\n - Change Project Details`
+    }, `Next Steps\n - Install Dependencies\n - Test Project Scripts\n - Update Documentation\n - Change Project Details\n eg Name, Version, Specs`
     );
 const QUESTIONS = [
     {
@@ -80,7 +77,7 @@ inquirer.prompt(QUESTIONS)
             fs.mkdirSync(`${CURR_DIR}/${templateName}`);
         }
         const includeTesting = answers['include-testing']
-        console.log(chalkPipe("green.bold")('🕊️ You are Ready to Develop with Fitwin'))
+        console.log(chalkPipe("green.bold")('🕊️ You are Ready to Fly'))
         // start processes
         setTimeout(() => {
             console.log("\n")

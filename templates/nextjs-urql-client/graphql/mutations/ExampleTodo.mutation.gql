@@ -1,5 +1,0 @@
-mutation createTodo {
-  createTodo(id: 2, title: "another", completed: false) {
-    id
-  }
-}
