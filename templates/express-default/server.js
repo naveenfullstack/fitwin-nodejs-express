@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI ,{
   useUnifiedTopology: true ,
 })
   .then( () => {
-      console.log('Connected to the MongoDB database "portfolio" ')
+      console.log('Connected to the MongoDB')
   })
   .catch( (err) => {
       console.error(`Error connecting to the database. n${err}`);

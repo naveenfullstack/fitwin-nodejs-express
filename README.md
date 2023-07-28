@@ -7,13 +7,13 @@
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://gitlab.com/nodeprojects4/nextjs-starter-templates)
 [![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg)](#)
 
->  Simple Cli to Spin up Scalable & Robust NextJs Application, Beautifully architected for Great DX
+>  Express Back-End Starter Templates
 
 
 ## Usage
 
 ```sh
-npx nextjs-starter-templates
+npx naveen-nodejs-express
 ```
 
 ## Pre-configured Libs
@@ -26,7 +26,7 @@ npx nextjs-starter-templates
  <tr>
     <td>
         <ul>
-            <li><a href="https://www.apollographql.com/docs/react/" style="text-decoration: unset;">Apollo Client</a></li>
+            <li><a href="https://www.apollographql.com/docs/react/" style="text-decoration: unset;">Expess Default</a></li>
             <li><a href="https://formidable.com/open-source/urql/docs/" style="text-decoration: unset;">Urql Client</a></li>
             <li><a href="https://react-query-v3.tanstack.com/" style="text-decoration: unset;">React Query</a></li>
             <li><a href="https://mui.com/material-ui/getting-started/overview/" style="text-decoration: unset;">MUI React</a></li>
@@ -57,22 +57,3 @@ npx nextjs-starter-templates
         </td>
     </tr>
 </table>
-
-
-
-## Screenshots
-![](./assets/select-template.png)
-
-![](./assets/done-image.png)
-
-## Author
-
-👤 **wahid**
-
-* Github: [@wahidzzz](https://github.com/wahidzzz)
-* LinkedIn: [@wahid-shaikh-7b1416148](https://linkedin.com/in/wahid-shaikh-7b1416148)
-
-## License
-### [ISC License](https://en.wikipedia.org/wiki/ISC_license)
-## Show your support
-Give a ⭐️ if this project helped you!

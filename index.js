@@ -27,20 +27,20 @@ const messageBox =
         stretch: true,
         hAlign: 'left',
         vAlign: 'top',
-    }, `Next Steps\n - Install Dependencies\n - Test Project Scripts\n - Update Documentation\n - Change Project Details\n eg Name, Version, Specs`
+    }, `Next Steps\n - Install Dependencies\n - Connect Database\n - Connect Cashe Database\n - Set your own headers\n Start Development`
     );
 const QUESTIONS = [
     {
         name: 'template-choice',
         type: 'list',
-        message: '👉 Which project template would you like to generate?',
+        message: '👉 Select the project template you would like to create?',
         choices: CHOICES,
-        default: "nextjs-apollo-client",
+        default: "express-default",
     },
     {
-        name: 'include-testing',
+        name: 'include-auth',
         type: 'confirm',
-        message: `🦺 Add Test Coverage with Jest, Playwright, react-testing-library ? ${chalkPipe('red.bold')('(BETA)')}`,
+        message: `Do you want to add advanced authantication?`,
         choices: CHOICES,
         default: false,
     },
@@ -76,7 +76,7 @@ inquirer.prompt(QUESTIONS)
         if (templateName !== ".") {
             fs.mkdirSync(`${CURR_DIR}/${templateName}`);
         }
-        const includeTesting = answers['include-testing']
+        const includeAuth = answers['include-auth']
         console.log(chalkPipe("green.bold")('🕊️ You are Ready to Fly'))
         // start processes
         setTimeout(() => {
@@ -86,20 +86,20 @@ inquirer.prompt(QUESTIONS)
         }, 1000);
         setTimeout(() => {
             spinner.succeed()
-        }, 2000);
+        },/*2000);
         setTimeout(() => {
             spinner.color = 'yellow'
             spinner.start("🐕 Adding Husky")
             createDirectoryContents(`${__dirname}/husky`, templateName);
-        }, 3000);
+        },*/ 3000);
         setTimeout(() => {
             spinner.succeed()
         }, 4000);
-        if (Boolean(includeTesting)) {
+        if (Boolean(includeAuth)) {
             setTimeout(() => {
                 spinner.color = 'magenta'
-                spinner.start("🧪 Adding Test Coverage")
-                createDirectoryContents(`${__dirname}/testing`, templateName)
+                spinner.start("🧪 Adding advanced authantication")
+                createDirectoryContents(`${__dirname}/auth`, templateName)
             }, 5000);
             setTimeout(() => {
                 spinner.succeed()
@@ -109,27 +109,6 @@ inquirer.prompt(QUESTIONS)
         setTimeout(() => {
             console.log(messageBox.stringify());
         }, 7000)
-        //! TODO: Package installation script
-        // setTimeout(() => {
-        //     spinner.color = 'green'
-        //     spinner.start("Installing Packages")
-        //     exec(`yarn install --modules-folder ./${templateName}`, (error, stdout, stderr) => {
-        //         if (error) {
-        //             spinner.fail(`error: ${error.message}`);
-        //             return;
-        //         }
-        //         if (stderr) {
-        //             spinner.fail(`stderr: ${stderr}`);
-        //             return;
-        //         }
-        //         console.log("\n");
-        //         spinner.succeed(`${stdout}`);
-        //     });
-        // }, 7000);
-        // setTimeout(() => {
-        //     spinner.stop()
-        // }, 8000);
-
     })
     .catch((error) => {
         if (error.isTtyError) {
